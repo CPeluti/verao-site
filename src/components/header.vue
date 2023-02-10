@@ -1,8 +1,8 @@
 <template>
     <div :class="check ? basicClassHeader : classHeader">
-        <h1 class="justify-self-start" :class="check?'text-white':'text-black'">
+        <a @click="scrollToTop" class="justify-self-start" :class="check?'text-white':'text-black'">
             RoME
-        </h1>
+        </a>
         <div class="justify-self-end">
             <a :class="check ? basicButton : nonBasicButton" href="test">
                 Participate
@@ -31,6 +31,10 @@
         // startScroll.value = window.scrollY
         window.addEventListener('scroll', checkScroll);
     })
+    const scrollToTop = () => {
+        const el = document.getElementById('start')
+        el?.scrollIntoView({behavior: 'smooth'})
+    }
 </script>
 
 <style lang="scss" scoped>
